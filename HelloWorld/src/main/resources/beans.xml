@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="hello" class="com.wzq.pojo.Hello" name="test1 teset2,test3;test4 ">
+        <!-- collaborators and configuration for this bean go here -->
+        <property name="str" value="Spring"/>
+    </bean>
+
+    <bean id="student1" class="com.wzq.pojo.Student" p:name="1"/>
+    <bean id="address1" class="com.wzq.pojo.Address"></bean>
+    <bean id="student" class="com.wzq.pojo.Student">
+        <property name="name" value="alex"/>
+
+        <property name="address" ref="address1"/>
+
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+            </array>
+        </property>
+
+        <property name="hobbies">
+            <list>
+                <value>唱歌</value>
+                <value>学习</value>
+            </list>
+        </property>
+
+        <property name="card" >
+            <map>
+                <entry key="1" value="value1"/>
+                <entry key="2" value="value2"/>
+            </map>
+        </property>
+
+        <property name="games">
+            <set>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </set>
+        </property>
+
+        <property name="wife">
+            <null/>
+        </property>
+
+        <property name="info">
+            <props>
+                <prop key="1">1</prop>
+                <prop key="2">2</prop>
+            </props>
+        </property>
+    </bean>
+
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+</beans>
